@@ -29,7 +29,7 @@ class Application(tk.Frame):
         self.i = tk.Label(self.frame, padx=20, pady=5, text='i').grid(column=7,row=1)
         self.o = tk.Label(self.frame, padx=20, pady=5, text='o').grid(column=8,row=1)
         self.p = tk.Label(self.frame, padx=20, pady=5, text='p').grid(column=9,row=1)
-        self.p.configure(text='H')
+        #self.p.configure(text='H')
         
         ###Keyboard Row 2
 
