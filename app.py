@@ -1,4 +1,6 @@
 import tkinter as tk
+from pynput import keyboard
+
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -29,9 +31,20 @@ class Application(tk.Frame):
         self.i = tk.Label(self.frame, padx=20, pady=5, text='i').grid(column=7,row=1)
         self.o = tk.Label(self.frame, padx=20, pady=5, text='o').grid(column=8,row=1)
         self.p = tk.Label(self.frame, padx=20, pady=5, text='p').grid(column=9,row=1)
-        #self.p.configure(text='H')
         
         ###Keyboard Row 2
+
+    def keypressed(key):
+        print('Key {0}'.format(key))
+        if key == Key.delete:
+            return False
+        if key == Key.space:
+            self.u['bg']='green'
+            return False
+
+    with keyboard.Listener(on_press = keypressed) as listener:
+        listener.join()
+    
 
 
 root = tk.Tk()
